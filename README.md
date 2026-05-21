@@ -64,3 +64,6 @@ ng serve
 - Al importar el proyecto desde Git como "Projects from Git" en lugar de "Existing Maven Projects", STS no lo reconocía como proyecto Java. Se solucionó reimportando con Maven.
 - La clase principal `DemoApplication.java` estaba en el paquete `com.example.demo` mientras que las clases del proyecto estaban en `com.libros`. Se solucionó moviendo `DemoApplication.java` al paquete `com.libros`.
 - Angular 21 genera los archivos de componentes sin el sufijo `.component` (por ejemplo `autores.ts` en lugar de `autores.component.ts`). Se actualizaron todas las referencias.
+- Algunos enlaces del menú no funcionaban correctamente porque se usaba href en lugar de routerLink, lo que provocaba recargas completas en vez de navegación SPA.
+- Problemas al acceder a rutas directamente desde el navegador (error 404 al refrescar).
+- Algunas vistas no cargaban al entrar directamente por URL.
