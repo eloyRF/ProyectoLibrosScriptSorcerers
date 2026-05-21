@@ -27,11 +27,23 @@ export class LibroService {
     return this.http.get<any[]>(`${this.apiUrl}/libros`);
   }
 
-  crearAutor(autor: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/autores`, autor);
-  }
-
   crearLibro(libro: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/libros`, libro);
+  }
+
+  crearAutor(autor: any) {
+    return this.http.post('http://localhost:8080/api/autores', autor);
+  }
+
+  editarAutor(nombre: string, autor: any) {
+    return this.http.put(`http://localhost:8080/api/autores/${nombre}`, autor);
+  }
+
+  eliminarAutor(nombre: string) {
+    return this.http.delete(`http://localhost:8080/api/autores/${nombre}`);
+  }
+
+  eliminarLibro(isbn: any) {
+    return this.http.delete(`http://localhost:8080/api/libros/${isbn}`);
   }
 }
