@@ -1,0 +1,11 @@
+<div class="container">
+  <h2>Autores</h2>
+  <ul>
+    @for (autor of autores(); track autor.nombre) {
+      <li>
+        <a [routerLink]="['/autores', autor.nombre, 'libros']">{{ autor.nombre }}</a>
+        <span>{{ autor.nacionalidad }}</span>
+      </li>
+    }
+  </ul>
+</div>

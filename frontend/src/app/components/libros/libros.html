@@ -1,0 +1,11 @@
+<div class="container">
+  <h2>Libros</h2>
+  <ul>
+    @for (libro of libros(); track libro.isbn) {
+      <li>
+        <strong>{{ libro.titulo }}</strong>
+        <span>{{ libro.fechaPublicacion | date:'yyyy' }}</span>
+      </li>
+    }
+  </ul>
+</div>
