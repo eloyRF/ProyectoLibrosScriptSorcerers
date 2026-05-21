@@ -1,34 +1,37 @@
 package com.libros.model;
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Date;
 
 @Entity
+@Table(name = "LIBROS")
 public class Libro {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "ISBN")
+    private Long isbn;
 
+    @Column(name = "TITULO", length = 80, nullable = false)
     private String titulo;
-    private String genero;
-    private int anio;
 
+    @Column(name = "FECHA_PUBLICACION")
+    @Temporal(TemporalType.DATE)
+    private Date fechaPublicacion;
+
+    @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "autor_id")
+    @JoinColumn(name = "AUTOR", referencedColumnName = "NOMBRE")
     private Autor autor;
 
-    // Getters y Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Long getIsbn() { return isbn; }
+    public void setIsbn(Long isbn) { this.isbn = isbn; }
 
     public String getTitulo() { return titulo; }
     public void setTitulo(String titulo) { this.titulo = titulo; }
 
-    public String getGenero() { return genero; }
-    public void setGenero(String genero) { this.genero = genero; }
-
-    public int getAnio() { return anio; }
-    public void setAnio(int anio) { this.anio = anio; }
+    public Date getFechaPublicacion() { return fechaPublicacion; }
+    public void setFechaPublicacion(Date fechaPublicacion) { this.fechaPublicacion = fechaPublicacion; }
 
     public Autor getAutor() { return autor; }
     public void setAutor(Autor autor) { this.autor = autor; }

@@ -25,9 +25,9 @@ public class AutorController {
         return autorService.findAll();
     }
 
-    @GetMapping("/{id}")
-    public Optional<Autor> getById(@PathVariable Long id) {
-        return autorService.findById(id);
+    @GetMapping("/{nombre}")
+    public Optional<Autor> getByNombre(@PathVariable String nombre) {
+        return autorService.findByNombre(nombre);
     }
 
     @PostMapping
@@ -35,8 +35,8 @@ public class AutorController {
         return autorService.save(autor);
     }
 
-    @GetMapping("/{id}/libros")
-    public List<Libro> getLibrosByAutor(@PathVariable Long id) {
-        return libroService.findByAutorId(id);
+    @GetMapping("/{nombre}/libros")
+    public List<Libro> getLibrosByAutor(@PathVariable String nombre) {
+        return libroService.findByAutorNombre(nombre);
     }
 }

@@ -20,7 +20,7 @@ public class LibroService {
         return libroRepository.save(libro);
     }
 
-    public List<Libro> findByAutorId(Long autorId) {
-        return libroRepository.findByAutorId(autorId);
+    public List<Libro> findByAutorNombre(String nombre) {
+        return libroRepository.findByAutorNombre(nombre);
     }
 }

@@ -17,8 +17,8 @@ public class AutorService {
         return autorRepository.findAll();
     }
 
-    public Optional<Autor> findById(Long id) {
-        return autorRepository.findById(id);
+    public Optional<Autor> findByNombre(String nombre) {
+        return autorRepository.findById(nombre);
     }
 
     public Autor save(Autor autor) {
