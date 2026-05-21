@@ -1,70 +1,59 @@
-# ProyectoLibrosScriptSorcerers
+# Fronted
 
-Aplicación web full stack sobre gestión de libros y autores desarrollada con Angular y Spring Boot.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.12.
 
-## Tecnologías
+## Development server
 
-- **Frontend:** Angular 21
-- **Backend:** Java con Spring Boot
-- **Base de datos:** H2 en memoria (no requiere instalación)
+To start a local development server, run:
 
-## Requisitos previos
-
-Antes de arrancar el proyecto, asegúrate de tener instalado:
-
-- [Node.js 18 o superior](https://nodejs.org/en)
-- Angular CLI: abre una terminal y ejecuta `npm install -g @angular/cli`
-- [Java 21 o superior](https://www.oracle.com/java/technologies/downloads/)
-- [Spring Tools Suite 4 (STS)](https://spring.io/tools) — entorno de desarrollo para proyectos Spring Boot
-
----
-
-## 1. Arrancar el Backend
-
-1. Abre **Spring Tools Suite (STS)**
-2. Ve a **File → Import → Maven → Existing Maven Projects**
-3. Haz clic en **Browse** y navega hasta la carpeta `backend` del proyecto (donde está el `pom.xml`) → **Finish**
-4. Espera a que STS descargue las dependencias de Maven
-5. Clic derecho sobre `DemoApplication.java` → **Run As → Spring Boot App**
-6. Cuando veas `Started DemoApplication` en la consola, el backend está listo en `http://localhost:8080`
-
-### Endpoints disponibles
-
-| Método | URL | Descripción |
-|--------|-----|-------------|
-| GET | /autores | Listar todos los autores |
-| GET | /autores/{nombre} | Detalle de un autor |
-| POST | /autores | Crear un autor |
-| GET | /autores/{nombre}/libros | Libros de un autor |
-| GET | /libros | Listar todos los libros |
-| POST | /libros | Crear un libro |
-
----
-
-## 2. Arrancar el Frontend
-
-1. Abre una terminal y navega hasta la carpeta `frontend`:
-2. Instala las dependencias (solo la primera vez):
-npm install
-
-Este comando descarga todos los paquetes necesarios de Angular y sus dependencias. Cuando termine verás la carpeta `node_modules` creada automáticamente.
-
-3. Arranca la aplicación:
+```bash
 ng serve
+```
 
-4. Abre el navegador en `http://localhost:4200`
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-> **Importante:** El backend debe estar arrancado antes de abrir el frontend, de lo contrario no se cargarán los datos.
+## Code scaffolding
 
----
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-## Problemas encontrados durante el desarrollo
+```bash
+ng generate component component-name
+```
 
-- STS incluye un plugin (Enonic XP) que marcaba el `application.properties` como error. Se solucionó creando el archivo como fichero genérico en lugar de Spring Properties File.
-- Al importar el proyecto desde Git como "Projects from Git" en lugar de "Existing Maven Projects", STS no lo reconocía como proyecto Java. Se solucionó reimportando con Maven.
-- La clase principal `DemoApplication.java` estaba en el paquete `com.example.demo` mientras que las clases del proyecto estaban en `com.libros`. Se solucionó moviendo `DemoApplication.java` al paquete `com.libros`.
-- Angular 21 genera los archivos de componentes sin el sufijo `.component` (por ejemplo `autores.ts` en lugar de `autores.component.ts`). Se actualizaron todas las referencias.
-- Algunos enlaces del menú no funcionaban correctamente porque se usaba href en lugar de routerLink, lo que provocaba recargas completas en vez de navegación SPA.
-- Problemas al acceder a rutas directamente desde el navegador (error 404 al refrescar).
-- Errores en rutas con parámetros (/autores/:nombre) por URLs mal construidas.
-- Algunas vistas no cargaban al entrar directamente por URL.
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+
+```bash
+ng generate --help
+```
+
+## Building
+
+To build the project run:
+
+```bash
+ng build
+```
+
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+
+## Running unit tests
+
+To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+
+```bash
+ng test
+```
+
+## Running end-to-end tests
+
+For end-to-end (e2e) testing, run:
+
+```bash
+ng e2e
+```
+
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Additional Resources
+
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
