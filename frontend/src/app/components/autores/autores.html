@@ -1,5 +1,20 @@
 <div class="container">
   <h2>Autores</h2>
+
+  <button class="btn" (click)="toggleFormulario()">
+    {{ mostrarFormulario() ? '✕ Cancelar' : '+ Añadir Autor' }}
+  </button>
+
+  @if (mostrarFormulario()) {
+    <form [formGroup]="formulario" (ngSubmit)="crearAutor()" class="formulario">
+      <input formControlName="nombre" placeholder="Nombre" />
+      <input formControlName="nacionalidad" placeholder="Nacionalidad" />
+      <input formControlName="edad" placeholder="Edad" type="number" />
+      <textarea formControlName="biografia" placeholder="Biografía"></textarea>
+      <button type="submit" class="btn" [disabled]="formulario.invalid">Guardar</button>
+    </form>
+  }
+
   <ul>
     @for (autor of autores(); track autor.nombre) {
       <li>
