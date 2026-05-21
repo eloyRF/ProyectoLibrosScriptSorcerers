@@ -66,4 +66,5 @@ ng serve
 - Angular 21 genera los archivos de componentes sin el sufijo `.component` (por ejemplo `autores.ts` en lugar de `autores.component.ts`). Se actualizaron todas las referencias.
 - Algunos enlaces del menú no funcionaban correctamente porque se usaba href en lugar de routerLink, lo que provocaba recargas completas en vez de navegación SPA.
 - Problemas al acceder a rutas directamente desde el navegador (error 404 al refrescar).
+- Errores en rutas con parámetros (/autores/:nombre) por URLs mal construidas.
 - Algunas vistas no cargaban al entrar directamente por URL.
